@@ -6,10 +6,22 @@ from datetime import datetime
 
 # Load webhook
 def load_webhook():
-    with open("config/discord.conf") as f:
-        for line in f:
-            if line.startswith("DISCORD_WEBHOOK"):
-                return line.split("=", 1)[1].strip().strip('"')
+    candidates = [
+        os.path.join(os.path.dirname(__file__), '..', '..', 'config', 'discord.conf'),
+        os.path.join(os.getcwd(), 'config', 'discord.conf'),
+        '/home/sujal/Desktop/Recon-Automation/config/discord.conf'
+    ]
+    for path in candidates:
+        try:
+            abs_path = os.path.abspath(path)
+            if not os.path.exists(abs_path):
+                continue
+            with open(abs_path) as f:
+                for line in f:
+                    if line.strip().startswith("DISCORD_WEBHOOK"):
+                        return line.split("=", 1)[1].strip().strip('"')
+        except Exception:
+            continue
     return None
 
 WEBHOOK_URL = load_webhook()

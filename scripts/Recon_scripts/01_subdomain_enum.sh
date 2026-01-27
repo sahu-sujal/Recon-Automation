@@ -13,4 +13,6 @@ amass enum -passive -d $DOMAIN -o $OUT/amass_$DATE.txt
 
 cat $OUT/*_$DATE.txt | sort -u > $OUT/all_$DATE.txt
 
+python3 scripts/store_subdomains.py $DOMAIN $OUT/all_$DATE.txt
+
 echo "[+] Total subdomains: $(wc -l < $OUT/all_$DATE.txt)" | tee -a $LOG

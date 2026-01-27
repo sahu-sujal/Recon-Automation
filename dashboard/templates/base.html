@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recon Dashboard</title>
+    <style>
+        body { font-family: Arial; background:#111; color:#eee; }
+        a { color:#4db8ff; text-decoration:none; margin-right:15px; }
+        table { border-collapse: collapse; width:100%; }
+        th, td { border:1px solid #333; padding:8px; }
+        th { background:#222; }
+    </style>
+</head>
+<body>
+
+<h2>🕵 Recon Automation Dashboard</h2>
+
+<nav>
+  <a href="/">Programs</a>
+  <a href="/subdomains">Subdomains</a>
+  <a href="/urls">URLs</a>
+  <a href="/js">JS</a>
+  <a href="/findings">Findings</a>
+  <a href="/findings/new">New Findings</a>
+</nav>
+
+<hr>
+
+{% block content %}{% endblock %}
+
+</body>
+</html>

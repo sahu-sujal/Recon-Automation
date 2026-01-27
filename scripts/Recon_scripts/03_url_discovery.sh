@@ -15,4 +15,6 @@ cat $LATEST_LIVE | awk '{print $1}' | katana -d 3 -silent > $OUT/katana_$DATE.tx
 
 cat $OUT/*_$DATE.txt | sort -u > $OUT/all_urls_$DATE.txt
 
+python3 scripts/store_urls.py $DOMAIN $OUT/all_urls_$DATE.txt
+
 echo "[+] URLs found: $(wc -l < $OUT/all_urls_$DATE.txt)"

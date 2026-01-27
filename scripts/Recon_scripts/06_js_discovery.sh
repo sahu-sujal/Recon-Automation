@@ -13,4 +13,6 @@ echo "[*] Extracting JS files"
 
 grep -Ei "\.js($|\?)" $LATEST_URLS | sort -u > $OUT/js_urls_$DATE.txt
 
+python3 scripts/store_js_files.py $DOMAIN $OUT/js_urls_$DATE.txt
+
 echo "[+] JS files found: $(wc -l < $OUT/js_urls_$DATE.txt)"
