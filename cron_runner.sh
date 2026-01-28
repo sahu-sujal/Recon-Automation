@@ -1,9 +1,10 @@
 #!/bin/bash
 
-source $BASE_DIR/config/env.sh
 BASE_DIR="/home/$USER/recon-automation"
 LOG_DIR="$BASE_DIR/cron_logs"
 DATE=$(date +%F)
+
+source $BASE_DIR/config/env.sh
 
 mkdir -p $LOG_DIR
 
