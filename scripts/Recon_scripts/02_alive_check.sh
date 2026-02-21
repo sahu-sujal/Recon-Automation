@@ -28,11 +28,8 @@ fi
 # ----------------------------
 # ---------- alive logic ----------
 
-cat "$LATEST_SUBS" \
-  | sed 's/\*\.//g' \        # remove wildcard
-  | sort -u \               # remove duplicates
-  | httpx -silent -threads 100 -status-code -title \
-  > "$OUT/live_$DATE.txt"
+cat "$LATEST_SUBS" | httpx-toolkit -silent -status-code -no-color \
+  -o "$OUT/live_$DATE.txt" 2>>"$LOG" || echo "[!] httpx error" | tee -a "$LOG"
 
 # -------------------------------
 
