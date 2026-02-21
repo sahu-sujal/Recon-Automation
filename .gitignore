@@ -24,3 +24,5 @@ TestResults.xml
 ### project folder ###
 project/*
 
+### Large Files ###
+tools/katana
