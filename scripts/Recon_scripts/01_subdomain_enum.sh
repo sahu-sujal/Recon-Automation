@@ -185,7 +185,7 @@ safe_run "Findomain" \
 ##################################
 # file processing
 ##################################
-cat "$OUT"/*._$DATE.txt 2>/dev/null \
+cat "$OUT"/*_$DATE.txt 2>/dev/null \
 | sed 's/\*\.//g' \
 | grep -E "^[a-zA-Z0-9._-]+\.$DOMAIN$" \
 | sort -u > "$OUT/all_$DATE.txt"
